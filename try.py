@@ -49,8 +49,9 @@ if __name__ == "__main__":
     # with torch.no_grad():
     #     y = X * 2
     #     print(y.requires_grad)
-    A = [1, 2, 3]
-    B = [2, 3, 4]
-    C = [3, 4, 5, 6]
-    for a, b, c in zip(A, B, C):
-        print(a, b, c)
+    # target = torch.randn(3, 5)
+    # target_s = target.clone().softmax(dim=0).sum(dim=0)
+    # print(target, '\n', target_s)
+
+    target = torch.empty(3, dtype=torch.long).random_(5)
+    print(target)
