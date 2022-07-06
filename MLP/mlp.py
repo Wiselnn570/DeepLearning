@@ -10,7 +10,7 @@ net = nn.Sequential(
 
 def init_weights(m):
     if type(m) == nn.Linear:
-        nn.init.normal_(m.weight, std=0.01)
+        nn.init.zeros_(m.weight)
 
 net.apply(init_weights)
 
