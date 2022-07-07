@@ -27,8 +27,8 @@ def init_params():
     b = torch.zeros(1, requires_grad=True)
     return [w, b]
 
-def l2_penalty(w):
-    return torch.sum(w.pow(2)) / 2
+def l1_penalty(w):
+    return torch.sum(torch.abs(w))
 
 def train(lambd):
     w, b = init_params()
@@ -37,7 +37,7 @@ def train(lambd):
     animator = d2l.Animator(xlabel='epochs', ylabel='loss', yscale='log', xlim=[5, num_epochs], legend=['train', 'test'])
     for epoch in range(num_epochs):
         for X, y in train_iter:
-            l = loss(net(X), y) + lambd * l2_penalty(w)
+            l = loss(net(X), y) + lambd * l1_penalty(w)
             l.sum().backward()
             d2l.sgd([w, b], lr, batch_size)
         if (epoch + 1) % 5 == 0:
@@ -45,5 +45,5 @@ def train(lambd):
                                      d2l.evaluate_loss(net, test_iter, loss)))
     print('w的L2范数是： ', torch.norm(w).item())
 
-train(lambd=0)
-d2l.plt.pause(0)
+train(lambd=10)
+d2l.plt.pause(10)

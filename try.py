@@ -23,6 +23,11 @@ def Test(a, b):
 def ret():
     return 1, 2
 
+def HelloWord(a:bool=True) -> str:
+    print("hello world")
+    return "hello world"
+
+
 
 if __name__ == "__main__":
     # Print()
@@ -53,5 +58,5 @@ if __name__ == "__main__":
     # target_s = target.clone().softmax(dim=0).sum(dim=0)
     # print(target, '\n', target_s)
 
-    target = torch.empty(3, dtype=torch.long).random_(5)
-    print(target)
+    # target = torch.empty(3, dtype=torch.long).random_(5)
+    HelloWord(False)
