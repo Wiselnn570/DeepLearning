@@ -3,30 +3,35 @@ import numpy as np
 from matplotlib import pyplot as plt
 import torch
 
-def Print(name: str =  "wxl"):
+
+def Print(name: str = "wxl"):
     print("my name is %s" % (name))
 
 
 class wxl:
-    def __init__(self, name = "wxl"):
+    def __init__(self, name="wxl"):
         self.name = name
+
     def __call__(self):
         print("my name is %s" % (self.name))
 
+
 def Try(a, b, *, name):
     print("! {}".format(name))
+
 
 def Test(a, b):
     assert a > 1, a
     assert b < 0, b
 
+
 def ret():
     return 1, 2
 
-def HelloWord(a:bool=True) -> str:
+
+def HelloWord(a: bool = True) -> str:
     print("hello world")
     return "hello world"
-
 
 
 if __name__ == "__main__":
@@ -59,4 +64,5 @@ if __name__ == "__main__":
     # print(target, '\n', target_s)
 
     # target = torch.empty(3, dtype=torch.long).random_(5)
+
     HelloWord(False)
